@@ -1,0 +1,62 @@
+@model Calculator.Models.CompoundInterest
+
+@{
+    ViewData["Title"] = "Compound Interest Calculator";
+    double result = Convert.ToDouble(@TempData["balance"]);
+    string strResult = string.Format("{0:N}", result);
+}
+
+<form asp-action="Index">
+    <div class="form-horizontal">
+        <br />
+        <div class="row h4 text-warning">
+            <div class="col-md-4">@ViewData["Title"]</div>
+            <div class="col-md-4">@ViewBag.Env</div>
+            <div class="col-md-4">@DateTime.Now.ToString("MMMM dd, yyyy")</div>
+        </div>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Principal" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Principal" class="form-control" />
+                <span asp-validation-for="Principal" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TimesCompounded" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TimesCompounded" class="form-control" />
+                <span asp-validation-for="TimesCompounded" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InterestRate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="InterestRate" class="form-control" />
+                <span asp-validation-for="InterestRate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Years" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Years" class="form-control" />
+                <span asp-validation-for="Years" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Calculate" id="btnCalculate" class="btn btn-default btn-success" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@if (TempData["balance"] != null)
+{
+    <p>Balance = <span id="result">@strResult</span></p>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
