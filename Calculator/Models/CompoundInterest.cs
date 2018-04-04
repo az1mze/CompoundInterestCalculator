@@ -13,10 +13,10 @@ namespace Calculator.Models
         public double Principal {
             get { return _principal; }
             set {
-                //if (value < 0)
-                //{
-                //    throw new Exception("Principal amount cannot be negative.");
-                //}
+                if (value < 0)
+                {
+                    throw new Exception("Principal amount cannot be negative.");
+                }
 
                 _principal = value;
             }
