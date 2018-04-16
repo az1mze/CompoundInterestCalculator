@@ -12,14 +12,15 @@ namespace Calculator.Models
 
         public double Principal {
             get { return _principal; }
-            set {
-                if (value < 0)
-                {
-                    throw new Exception("Principal amount cannot be negative.");
-                }
+            
+//             set {
+//                 if (value < 0)
+//                 {
+//                     throw new Exception("Principal amount cannot be negative.");
+//                 }
 
-                _principal = value;
-            }
+//                 _principal = value;
+//             }
         }
 
         [Display(Name = "Times interest is compounded per year")]
