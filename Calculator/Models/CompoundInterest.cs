@@ -11,8 +11,7 @@ namespace Calculator.Models
         private int _years;
 
         public double Principal {
-            get { return _principal; }
-            
+            get { return _principal; }           
 //             set {
 //                 if (value < 0)
 //                 {
