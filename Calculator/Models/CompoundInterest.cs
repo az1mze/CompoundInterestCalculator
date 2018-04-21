@@ -15,7 +15,7 @@ namespace Calculator.Models
             set {
                 if (value < 0)
                 {
-//                     throw new Exception("Principal amount cannot be negative.");
+                    throw new Exception("Principal amount cannot be negative.");
                 }
 
                 _principal = value;
